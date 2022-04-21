@@ -2,47 +2,41 @@
 <meta charset = "UTF-8">
 <html>
 
-	<style>
-		 table, th, td {
-			border: 1px solid white;
-			border-collapse: collapse;
-			padding: 5px;
-		}
-	</style>
+	<link rel="STYLESHEET" href="../Styles/style.css" type="text/css">
 
 	<head>
 		<title> Tarefa 4 de ODAW </title>
 		<link rel="icon" type="image/x-icon" href="../Imagens/favicon.ico">
 	</head>
 	
-	<header style="color: white;">
+	<header>
 		<h1 style="text-align: center;"> Algumas Coisas sobre Lógica </h1>
 		<!-- https://www.johndcook.com/blog/math_symbols/ -->
 		<nav>
-			<table style="margin-left: auto; margin-right: auto;">
-				<tr''>
+			<table class="centered">
+				<tr>
 					<td>
-						<a style="color: white;text-decoration: underline;" href="#Parte 1">Parte 1</a>
+						<a class="link" href="#Parte 1">Parte 1</a>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<a style="color: white;text-decoration: underline;" href="#Parte 2">Parte 2</a>
+						<a class="link" href="#Parte 2">Parte 2</a>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<a style="color: white;text-decoration: underline;" href="#Referências">Referências</a>
+						<a class="link" href="#Referências">Referências</a>
 					</td>
 				</tr>
 			</table>
 		</nav>
 	</header>
 	
-	<body style="background-color: rgb(38, 41, 34); color: white;">
+	<body>
 
 		<section>
-			<!-- <h3 style="color: white;"><a name="Parte 1"> Parte 1: Origens da Lógica </a></h3> -->
+			<!-- <h3 ><a name="Parte 1"> Parte 1: Origens da Lógica </a></h3> -->
 			<header><a name="Parte 1"><h3> Parte 1: Origens da Lógica </h3></a></header>
 			<hr>
 			<article>
@@ -63,7 +57,7 @@
 							<figcaption>Figura 1, Aristóteles</figcaption>
 						</figure>
 					</aside>
-					Aristóteles<sup style="font-size: small;"><a style="color: white;" href="#Rodape1">1</a></sup> 
+					Aristóteles<sup style="font-size: small;"><a  href="#Rodape1">1</a></sup> 
 					pode ser considerado o pai da lógica formal no ocidente, sendo ele o criador de termos como "lógica",
 					"termo", "predicado", "proposição" e "silogismo", ademais, ele também criou o conceito de silogismo, um dos primeiros
 					métodos dedutivos que se tem registro. Os silogismos são compostos de três partes, a <i>Premissa Maior</i> , uma afirmação geral
@@ -89,13 +83,13 @@
 					Por muito (muito mesmo) tempo, no Ocidente o estudo de lógica se concentrou na Lógica Aristotélica descrita na seção
 					anterior, apenas no século 19 houveram avanços na área, devido a um crescente interesse nos fundamentos da matemática,
 					o que levou ao surgimento da lógica simbólica (também conhecida como lógica matemática). Matemáticos como 
-					<a style="color: white;text-decoration: underline;" href="https://en.wikipedia.org/wiki/George_Boole" target="_blank">
+					<a class="link" href="https://en.wikipedia.org/wiki/George_Boole" target="_blank">
 					George Boole</a>, 
-					<a style="color: white;text-decoration: underline;" href="https://en.wikipedia.org/wiki/Gottlob_Frege" target="_blank">
+					<a class="link" href="https://en.wikipedia.org/wiki/Gottlob_Frege" target="_blank">
 					Gottlob Frege</a>,
-					<a style="color: white;text-decoration: underline;" href="https://en.wikipedia.org/wiki/Bertrand_Russell" target="_blank">
+					<a class="link" href="https://en.wikipedia.org/wiki/Bertrand_Russell" target="_blank">
 					Bertrand Russel</a> e
-					<a style="color: white;text-decoration: underline;" href="https://en.wikipedia.org/wiki/David_Hilbert" target="_blank">
+					<a class="link" href="https://en.wikipedia.org/wiki/David_Hilbert" target="_blank">
 					David Hilbert</a> foram responsáveis por alguns dos maiores avanços na área.
 					<br>
 					<br>
@@ -112,18 +106,18 @@
 					são os seguintes:
 					<br>
 					<dl>
-						<!-- <dt style="text-decoration: underline; font-weight: bold;">Proposição ou Átomo</dt>
+						<!-- <dt class="title">Proposição ou Átomo</dt>
 						<dd>É a menor coisa que pode existir numa lógica, representa alguma informação que pode ser verdadeira ou não
 							dependendo do valor verdade atribuído a ela.<br> 
 							Geralmente são representados por letras latinas ou gregas, podendo adicionalmente conter um número subscrito.
 						</dd> -->
 	
-						<dt style="text-decoration: underline; font-weight: bold;">Conjunção</dt>
+						<dt class="title">Conjunção</dt>
 						<dd>Representa um <b>E</b> entre duas fórmulas, isto é, uma conjunção é verdadeira se ambas as fórmulas que
 							ela liga são verdadeiras. É representado por &and;, por exemplo A &and; B
 						</dd>
 	
-						<dt style="text-decoration: underline; font-weight: bold;">Disjunção</dt>
+						<dt class="title">Disjunção</dt>
 						<dd>
 							Representa um <b>OU</b> entre duas fórmulas, isto é, uma disjunção é verdadeira se uma ou ambas as fórmulas
 							que ela liga são verdadeiras.
@@ -131,7 +125,7 @@
 							É representado por &or;, por exemplo A &or; B
 						</dd>
 	
-						<dt style="text-decoration: underline; font-weight: bold;">Implicação</dt>
+						<dt class="title">Implicação</dt>
 						<dd>
 							Representa uma causalidade entre duas fórmulas, isto é, uma implicação é verdadeira se, sempre
 							que a fórmula na esquerda (chamada de antecedente) for verdadeira, a fórmula na direita 
@@ -140,7 +134,7 @@
 							É representado por &rArr;, por exemplo A &rArr; B
 						</dd>
 	
-						<dt style="text-decoration: underline; font-weight: bold;">Negação</dt>
+						<dt class="title">Negação</dt>
 						<dd>
 							Representa a negação de uma fórmula, isto é, uma negação é verdadeira se a fórmula que ela liga for falsa.
 							<br>
@@ -149,24 +143,24 @@
 					</dl>
 				</p>
 				<p>
-					O conjunto de fórmulas bem formadas <span style="font-family: cursive; font-size: larger;">F</span> 
+					O conjunto de fórmulas bem formadas <span id="fancy">F</span> 
 					da lógica clássica é definido indutivamente a partir das seguintes regras, sendo 
-					<span style="font-family: cursive; font-size: larger;">P</span> &nbsp;um conjunto infinito de proposições;
+					<span id="fancy">P</span> &nbsp;um conjunto infinito de proposições;
 	
 					<ol type="i">
 						<li>
-							<span style="font-family: cursive; font-size: larger;">P</span> &sube;; 
-							<span style="font-family: cursive; font-size: larger;">F</span> 
+							<span id="fancy">P</span> &sube;; 
+							<span id="fancy">F</span> 
 						</li>
 	
 						<li>
-							Se A &isin; <span style="font-family: cursive; font-size: larger;">F</span> então 
-							&not;A &isin; <span style="font-family: cursive; font-size: larger;">F</span>
+							Se A &isin; <span id="fancy">F</span> então 
+							&not;A &isin; <span id="fancy">F</span>
 						</li>
 	
 						<li>
-							Se A, B &isin; <span style="font-family: cursive; font-size: larger;">F</span> então
-							A &CirclePlus; B &isin; <span style="font-family: cursive; font-size: larger;">F</span>, onde 
+							Se A, B &isin; <span id="fancy">F</span> então
+							A &CirclePlus; B &isin; <span id="fancy">F</span>, onde 
 							&CirclePlus; &isin; {&and;, &or;, &rArr;}
 						</li>
 	
@@ -181,234 +175,233 @@
 					
 					<br>
 					<br>
-	
-					<table>
-						<tr>
-							<td>
-								p
-							</td>
-							<td>
-								&not; p
-							</td>
-						</tr>
-						<tr>
-							<td>
-								T
-							</td>
-							<td style="text-align: center;">
-								F
-							</td>
-						</tr>
-						<tr>
-							<td>
-								F
-							</td>
-							<td style="text-align: center;">
-								T
-							</td>
-						</tr>
-					</table>
 					
-					<br>
-					<br>
-	
-					<table>
-						<tr>
-							<td>
-								p
-							</td>
-							<td>
-								q
-							</td>
-							<td>
-								p &and; q
-							</td>
-						</tr>
-						<tr>
-							<td>
-								T
-							</td>
-							<td>
-								T
-							</td>
-							<td style="text-align: center;">
-								T
-							</td>
-						</tr>
-						<tr>
-							<td>
-								T
-							</td>
-							<td>
-								F
-							</td>
-							<td style="text-align: center;">
-								F
-							</td>
-						</tr>
-						<tr>
-							<td>
-								F
-							</td>
-							<td>
-								T
-							</td>
-							<td style="text-align: center;">
-								F
-							</td>
-						</tr>
-						<tr>
-							<td>
-								F
-							</td>
-							<td>
-								F
-							</td>
-							<td style="text-align: center;">
-								F
-							</td>
-						</tr>
-					</table>
-					
-					<br>
-					<br>
-	
-					<table>
-						<tr>
-							<td>
-								p
-							</td>
-							<td>
-								q
-							</td>
-							<td>
-								p &or; q
-							</td>
-						</tr>
-						<tr>
-							<td>
-								T
-							</td>
-							<td>
-								T
-							</td>
-							<td style="text-align: center;">
-								T
-							</td>
-						</tr>
-						<tr>
-							<td>
-								T
-							</td>
-							<td>
-								F
-							</td>
-							<td style="text-align: center;">
-								T
-							</td>
-						</tr>
-						<tr>
-							<td>
-								F
-							</td>
-							<td>
-								T
-							</td>
-							<td style="text-align: center;">
-								T
-							</td>
-						</tr>
-						<tr>
-							<td>
-								F
-							</td>
-							<td>
-								F
-							</td>
-							<td style="text-align: center;">
-								F
-							</td>
-						</tr>
-					</table>
-	
-					<br>
-					<br>
-	
-					<table>
-						<tr>
-							<td>
-								p
-							</td>
-							<td>
-								q
-							</td>
-							<td>
-								p &rArr; q
-							</td>
-						</tr>
-						<tr>
-							<td>
-								T
-							</td>
-							<td>
-								T
-							</td>
-							<td style="text-align: center;">
-								T
-							</td>
-						</tr>
-						<tr>
-							<td>
-								T
-							</td>
-							<td>
-								F
-							</td>
-							<td style="text-align: center;">
-								F
-							</td>
-						</tr>
-						<tr>
-							<td>
-								F
-							</td>
-							<td>
-								T
-							</td>
-							<td style="text-align: center;">
-								T
-							</td>
-						</tr>
-						<tr>
-							<td>
-								F
-							</td>
-							<td>
-								F
-							</td>
-							<td style="text-align: center;">
-								T
-							</td>
-						</tr>
-					</table>
-				</p>
+					<div class="row">
+						<div class="column">
+							<table>
+								<tr>
+									<td>
+										p
+									</td>
+									<td>
+										&not; p
+									</td>
+								</tr>
+								<tr>
+									<td>
+										T
+									</td>
+									<td style="text-align: center;">
+										F
+									</td>
+								</tr>
+								<tr>
+									<td>
+										F
+									</td>
+									<td style="text-align: center;">
+										T
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="column">
+							<table>
+								<tr>
+									<td>
+										p
+									</td>
+									<td>
+										q
+									</td>
+									<td>
+										p &and; q
+									</td>
+								</tr>
+								<tr>
+									<td>
+										T
+									</td>
+									<td>
+										T
+									</td>
+									<td style="text-align: center;">
+										T
+									</td>
+								</tr>
+								<tr>
+									<td>
+										T
+									</td>
+									<td>
+										F
+									</td>
+									<td style="text-align: center;">
+										F
+									</td>
+								</tr>
+								<tr>
+									<td>
+										F
+									</td>
+									<td>
+										T
+									</td>
+									<td style="text-align: center;">
+										F
+									</td>
+								</tr>
+								<tr>
+									<td>
+										F
+									</td>
+									<td>
+										F
+									</td>
+									<td style="text-align: center;">
+										F
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="column">
+							<table>
+								<tr>
+									<td>
+										p
+									</td>
+									<td>
+										q
+									</td>
+									<td>
+										p &or; q
+									</td>
+								</tr>
+								<tr>
+									<td>
+										T
+									</td>
+									<td>
+										T
+									</td>
+									<td style="text-align: center;">
+										T
+									</td>
+								</tr>
+								<tr>
+									<td>
+										T
+									</td>
+									<td>
+										F
+									</td>
+									<td style="text-align: center;">
+										T
+									</td>
+								</tr>
+								<tr>
+									<td>
+										F
+									</td>
+									<td>
+										T
+									</td>
+									<td style="text-align: center;">
+										T
+									</td>
+								</tr>
+								<tr>
+									<td>
+										F
+									</td>
+									<td>
+										F
+									</td>
+									<td style="text-align: center;">
+										F
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="column">
+							<table>
+								<tr>
+									<td>
+										p
+									</td>
+									<td>
+										q
+									</td>
+									<td>
+										p &rArr; q
+									</td>
+								</tr>
+								<tr>
+									<td>
+										T
+									</td>
+									<td>
+										T
+									</td>
+									<td style="text-align: center;">
+										T
+									</td>
+								</tr>
+								<tr>
+									<td>
+										T
+									</td>
+									<td>
+										F
+									</td>
+									<td style="text-align: center;">
+										F
+									</td>
+								</tr>
+								<tr>
+									<td>
+										F
+									</td>
+									<td>
+										T
+									</td>
+									<td style="text-align: center;">
+										T
+									</td>
+								</tr>
+								<tr>
+									<td>
+										F
+									</td>
+									<td>
+										F
+									</td>
+									<td style="text-align: center;">
+										T
+									</td>
+								</tr>
+							</table>
+							<br>
+						</div>
+					</div>
+				</p>	
 	
 				<p>
 					Para representar a valoração de uma dada fómula qualquer, usamos a notação 
-					<span style="font-family: cursive; font-size: larger;">V</span> (a) = X, onde a é uma fórmula qualquer e 
+					<span id="fancy">V</span> (a) = X, onde a é uma fórmula qualquer e 
 					X é um valor verdade; por exemplo:
-					<span style="font-family: cursive; font-size: larger;">V</span> (p) = T, 
-					<span style="font-family: cursive; font-size: larger;">V</span> (p &and; q) = T,
-					<span style="font-family: cursive; font-size: larger;">V</span> ((p &rArr; q) &and; r) = T, ...
+					<span id="fancy">V</span> (p) = T, 
+					<span id="fancy">V</span> (p &and; q) = T,
+					<span id="fancy">V</span> ((p &rArr; q) &and; r) = T, ...
 				</p>
 			</article>
 		</section>
 
-		<!-- <p style="color: white;">
+		<!-- <p >
 				Por fim, um pequeno questionário de "fixação", para testar alguns conceitos que falei aqui:
 				<span style="font-size: xx-small;">(não, eu não consegui pensar no que poderia colocar aqui, como adivinhou?)</span>
 
-				<form style="color: white;">
+				<form >
 					<label for="Q1">Pergunta 1: Qual o nome de um dos filósofos/matemáticos que mencionei no texto?</label><br>
 					<input type="text" id="Q1" name="Q1"><br><br>
 					<label for="Q2">Pergunta 2: O que você achou do texto?</label><br>
@@ -422,13 +415,13 @@
 			<article>
 				<p>
 					As fontes da 
-					<a style="color: white;text-decoration: underline;" href="#Parte 1">parte 1</a> foram, em ordem de uso,
-					a <a style="color: white;text-decoration: underline;" href="https://en.wikipedia.org/wiki/Logic" target="_blank">
+					<a class="link" href="#Parte 1">parte 1</a> foram, em ordem de uso,
+					a <a class="link" href="https://en.wikipedia.org/wiki/Logic" target="_blank">
 					página da Wikipedia sobre lógica</a> e a minha própria memória.
 					<br><br>
 					As fontes da 
-					<a style="color: white;text-decoration: underline;" href="#Parte 2">parte 2</a> foram, em ordem de uso,
-					a <a style="color: white;text-decoration: underline;" href="https://en.wikipedia.org/wiki/Logic" target="_blank">
+					<a class="link" href="#Parte 2">parte 2</a> foram, em ordem de uso,
+					a <a class="link" href="https://en.wikipedia.org/wiki/Logic" target="_blank">
 					página da Wikipedia sobre lógica</a> e o livro Lógica para Computação de Flávio S. C. da Silva, Marcelo Finger e
 					Ana C. V. de Melo de 2017.
 				</p>

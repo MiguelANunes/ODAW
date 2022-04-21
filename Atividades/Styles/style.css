@@ -1,0 +1,41 @@
+*{
+    color: white;
+    background-color: rgb(38, 41, 34);
+    box-sizing: border-box;
+}
+
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+.row {
+    margin-left:  5px;
+    margin-right: 5px;
+}
+    
+.column {
+    float: left;
+    width: 25%;
+    /* padding: 5px; */
+}
+
+a.link{
+    text-decoration: underline;
+}
+
+#fancy{
+    font-family: cursive; 
+    font-size: larger;
+}
+
+dt.title{
+    text-decoration: underline; 
+    font-weight: bold;
+}
+
+table.centered{
+    margin-left: auto; 
+    margin-right: auto;
+}
