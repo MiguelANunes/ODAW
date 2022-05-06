@@ -2,15 +2,14 @@
 <html lang="en">
 
 	<head>
-		<meta charset = "UTF-8">
+		<meta charset = "UTF-8" name="viewport" content="width=device-width, initial-scale=1">
 		<title> Tarefa 5 de ODAW </title>
 		<!-- https://katex.org/docs/browser.html Usando isso pra renderizar Latex na página -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
 		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-		<script src="../Scripts/script.js"></script>
-		<link rel="icon" type="image/x-icon" href="../Imagens/favicon.ico">
 		<link rel="STYLESHEET" href="../Styles/style.css" type="text/css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+		<link rel="icon" type="image/x-icon" href="../Imagens/favicon.ico">
 	</head>
 	
 	<header>
@@ -70,6 +69,8 @@
 							<figcaption>Figura 1, Aristóteles</figcaption>
 						</figure>
 					</aside>
+				</p>
+				<p>
 					<a class="simple" name="Rodape1Up">Aristóteles</a><sup style="font-size: small;">
 					<a class="simple"  href="#Rodape1">1</a></sup> 
 					pode ser considerado o pai da lógica formal no ocidente, sendo ele o criador de termos como "lógica",
@@ -159,12 +160,13 @@
 				<p>
 					O conjunto de fórmulas bem formadas \(\mathcal{F}\) 
 					da lógica clássica é definido indutivamente a partir das seguintes regras, sendo 
-					\(\mathcal{P}\) &nbsp;um conjunto infinito de proposições;
+					\(\mathcal{P}\) um conjunto infinito de proposições e sendo \(\bot, \top\)<a class="simple" name="Rodape2Up">
+					</a><sup style="font-size: small;"><a class="simple"  href="#Rodape2">2</a></sup> as constantes lógicas de 
+					falsidade e verdade;
 	
 					<ol type="i">
 						<li>
-							\(\bot, \top \in \mathcal{F}\)<a class="simple" name="Rodape2Up"></a><sup style="font-size: small;">
-							<a class="simple"  href="#Rodape2">2</a></sup></sup>
+							\(\bot, \top \in \mathcal{F}\)
 						</li>
 
 						<li>
@@ -181,263 +183,336 @@
 						</li>
 					</ol>
 				</p>
+				
+				<h3> Parte 2.1: Valorando Fórmulas </h3>
+				<hr>
+				<button class="collapsible"> Mostrar Conteúdo </button>
+				<div class="content">
+					<p>
+						Para atribuir valores verdade a fórmulas na lógica clássica é utilizado o método da tabela verdade, este método consiste
+						em listar todas as possíveis combinações de valores verdade dos átomos de uma fórmula nas colunas de uma tabela, então
+						para cada conectivo na fórmula, calcular o seu valor verdade com base no valor verdade dos átomos que estão presentes
+						na operação, de acordo com as regras de cada conectivo. Por exemplo:
+						
+						<br>
+						<br>
+						
+						<div class="row">
+							<div class="column">
+								<table>
+									<tr>
+										<td>
+											\(p\)
+										</td>
+										<td>
+											\(\neg p\)
+										</td>
+									</tr>
+									<tr>
+										<td>
+											T
+										</td>
+										<td style="text-align: center;">
+											F
+										</td>
+									</tr>
+									<tr>
+										<td>
+											F
+										</td>
+										<td style="text-align: center;">
+											T
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="column">
+								<table>
+									<tr>
+										<td>
+											\(p\)
+										</td>
+										<td>
+											\(q\)
+										</td>
+										<td>
+											\(p \land q\)
+										</td>
+									</tr>
+									<tr>
+										<td>
+											T
+										</td>
+										<td>
+											T
+										</td>
+										<td style="text-align: center;">
+											T
+										</td>
+									</tr>
+									<tr>
+										<td>
+											T
+										</td>
+										<td>
+											F
+										</td>
+										<td style="text-align: center;">
+											F
+										</td>
+									</tr>
+									<tr>
+										<td>
+											F
+										</td>
+										<td>
+											T
+										</td>
+										<td style="text-align: center;">
+											F
+										</td>
+									</tr>
+									<tr>
+										<td>
+											F
+										</td>
+										<td>
+											F
+										</td>
+										<td style="text-align: center;">
+											F
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="column">
+								<table>
+									<tr>
+										<td>
+											\(p\)
+										</td>
+										<td>
+											\(q\)
+										</td>
+										<td>
+											\(p \lor q\)
+										</td>
+									</tr>
+									<tr>
+										<td>
+											T
+										</td>
+										<td>
+											T
+										</td>
+										<td style="text-align: center;">
+											T
+										</td>
+									</tr>
+									<tr>
+										<td>
+											T
+										</td>
+										<td>
+											F
+										</td>
+										<td style="text-align: center;">
+											T
+										</td>
+									</tr>
+									<tr>
+										<td>
+											F
+										</td>
+										<td>
+											T
+										</td>
+										<td style="text-align: center;">
+											T
+										</td>
+									</tr>
+									<tr>
+										<td>
+											F
+										</td>
+										<td>
+											F
+										</td>
+										<td style="text-align: center;">
+											F
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="column">
+								<table>
+									<tr>
+										<td>
+											\(p\)
+										</td>
+										<td>
+											\(q\)
+										</td>
+										<td>
+											\(p \to q\)
+										</td>
+									</tr>
+									<tr>
+										<td>
+											T
+										</td>
+										<td>
+											T
+										</td>
+										<td style="text-align: center;">
+											T
+										</td>
+									</tr>
+									<tr>
+										<td>
+											T
+										</td>
+										<td>
+											F
+										</td>
+										<td style="text-align: center;">
+											F
+										</td>
+									</tr>
+									<tr>
+										<td>
+											F
+										</td>
+										<td>
+											T
+										</td>
+										<td style="text-align: center;">
+											T
+										</td>
+									</tr>
+									<tr>
+										<td>
+											F
+										</td>
+										<td>
+											F
+										</td>
+										<td style="text-align: center;">
+											T
+										</td>
+									</tr>
+								</table>
+								<br>
+							</div>
+						</div>
+					</p>	
+		
+					<p>
+						Para representar a valoração de uma dada fómula qualquer, usamos a notação \(\mathcal{V}(a) = x\), 
+						onde \(a\) é uma fórmula qualquer e \(x \in \{T,F\}\); por exemplo:
+						\[
+						\mathcal{V}(p) = T\\
+						\mathcal{V}(p \land q) = F\\
+						\mathcal{V}((p \to q) \land r) = T
+						\]
 	
-				<p>
-					Para atribuir valores verdade a fórmulas na lógica clássica é utilizado o método da tabela verdade, este método consiste
-					em listar todas as possíveis combinações de valores verdade dos átomos de uma fórmula nas colunas de uma tabela, então
-					para cada conectivo na fórmula, calcular o seu valor verdade com base no valor verdade dos átomos que estão presentes
-					na operação, de acordo com as regras de cada conectivo. Por exemplo:
-					
-					<br>
-					<br>
-					
-					<div class="row">
-						<div class="column">
-							<table>
-								<tr>
-									<td>
-										\(p\)
-									</td>
-									<td>
-										\(\neg p\)
-									</td>
-								</tr>
-								<tr>
-									<td>
-										T
-									</td>
-									<td style="text-align: center;">
-										F
-									</td>
-								</tr>
-								<tr>
-									<td>
-										F
-									</td>
-									<td style="text-align: center;">
-										T
-									</td>
-								</tr>
-							</table>
-						</div>
-						<div class="column">
-							<table>
-								<tr>
-									<td>
-										\(p\)
-									</td>
-									<td>
-										\(q\)
-									</td>
-									<td>
-										\(p \land q\)
-									</td>
-								</tr>
-								<tr>
-									<td>
-										T
-									</td>
-									<td>
-										T
-									</td>
-									<td style="text-align: center;">
-										T
-									</td>
-								</tr>
-								<tr>
-									<td>
-										T
-									</td>
-									<td>
-										F
-									</td>
-									<td style="text-align: center;">
-										F
-									</td>
-								</tr>
-								<tr>
-									<td>
-										F
-									</td>
-									<td>
-										T
-									</td>
-									<td style="text-align: center;">
-										F
-									</td>
-								</tr>
-								<tr>
-									<td>
-										F
-									</td>
-									<td>
-										F
-									</td>
-									<td style="text-align: center;">
-										F
-									</td>
-								</tr>
-							</table>
-						</div>
-						<div class="column">
-							<table>
-								<tr>
-									<td>
-										\(p\)
-									</td>
-									<td>
-										\(q\)
-									</td>
-									<td>
-										\(p \lor q\)
-									</td>
-								</tr>
-								<tr>
-									<td>
-										T
-									</td>
-									<td>
-										T
-									</td>
-									<td style="text-align: center;">
-										T
-									</td>
-								</tr>
-								<tr>
-									<td>
-										T
-									</td>
-									<td>
-										F
-									</td>
-									<td style="text-align: center;">
-										T
-									</td>
-								</tr>
-								<tr>
-									<td>
-										F
-									</td>
-									<td>
-										T
-									</td>
-									<td style="text-align: center;">
-										T
-									</td>
-								</tr>
-								<tr>
-									<td>
-										F
-									</td>
-									<td>
-										F
-									</td>
-									<td style="text-align: center;">
-										F
-									</td>
-								</tr>
-							</table>
-						</div>
-						<div class="column">
-							<table>
-								<tr>
-									<td>
-										\(p\)
-									</td>
-									<td>
-										\(q\)
-									</td>
-									<td>
-										\(p \to q\)
-									</td>
-								</tr>
-								<tr>
-									<td>
-										T
-									</td>
-									<td>
-										T
-									</td>
-									<td style="text-align: center;">
-										T
-									</td>
-								</tr>
-								<tr>
-									<td>
-										T
-									</td>
-									<td>
-										F
-									</td>
-									<td style="text-align: center;">
-										F
-									</td>
-								</tr>
-								<tr>
-									<td>
-										F
-									</td>
-									<td>
-										T
-									</td>
-									<td style="text-align: center;">
-										T
-									</td>
-								</tr>
-								<tr>
-									<td>
-										F
-									</td>
-									<td>
-										F
-									</td>
-									<td style="text-align: center;">
-										T
-									</td>
-								</tr>
-							</table>
-							<br>
-						</div>
-					</div>
-				</p>	
+						Note que \(\mathcal{V}\) é uma função de assinatura \(\mathcal{F} \to \{T,F\}\), ela é uma função especial,
+						chamada de <i>função de valoração</i>, pois atribuí um valor verdade aos átomos de uma fórmula. O valor verdade de
+						uma fórmula é calculado com base no valor verdade dos átomos e das regras descritas acima.
+						<br>
+						Há infinitas funções de valoração possíveis<a class="simple" name="Rodape3Up"></a><sup style="font-size: small;">
+						<a class="simple"  href="#Rodape3">3</a></sup></sup> e podemos classificar fórmulas com base em como elas
+						podem ser valoradas por essas infinitas funções de valoração.
+						<br>
+						Fórmulas se classificam em:
 	
-				<p>
-					Para representar a valoração de uma dada fómula qualquer, usamos a notação \(\mathcal{V}(a) = x\), 
-					onde \(a\) é uma fórmula qualquer e \(x \in \{T,F\}\); por exemplo:
-					\[
-					\mathcal{V}(p) = T\\
-					\mathcal{V}(p \land q) = F\\
-					\mathcal{V}((p \to q) \land r) = T
-					\]
+						<dl>
+							<dt class="title">Válida</dt>
+							<dd> Se \(\forall \mathcal{V}, \mathcal{V}(A) = T\)</dd>
+	
+							<dt class="title">Satisfazível</dt>
+							<dd> Se \(\exists \mathcal{V}, \mathcal{V}(A) = T\)</dd>
+	
+							<dt class="title">Insatisfazível</dt>
+							<dd> Se \(\forall \mathcal{V}, \mathcal{V}(A) = F\)</dd>
+	
+							<dt class="title">Falsificável</dt>
+							<dd> Se \(\exists \mathcal{V}, \mathcal{V}(A) = F\)</dd>
+						</dl>
+	
+						Para uma dada função de valoração \(\mathcal{V}\), \(\mathcal{V}(A) = T\), 
+						\(A\) é dita "satisfeita" e \(\mathcal{V}\) "satisfaz" \(A\). Análogamente, se \(\mathcal{V}(A) = F\) \(A\) é dita
+						"insatisfeita" e \(\mathcal{V}\) "insatisfaz" ou "falsifica" \(A\).
+					</p>
+				</div>
 
-					Note que \(\mathcal{V}\) é uma função de assinatura \(\mathcal{F} \to \{T,F\}\), ela é uma função especial,
-					chamada de <i>função de valoração</i>, pois atribuí um valor verdade aos átomos de uma fórmula. O valor verdade de
-					uma fórmula é calculado com base no valor verdade dos átomos e das regras descritas acima.
-					<br>
-					Há infinitas funções de valoração possíveis<a class="simple" name="Rodape3Up"></a><sup style="font-size: small;">
-					<a class="simple"  href="#Rodape3">3</a></sup></sup> e podemos classificar fórmulas com base em como elas
-					podem ser valoradas por essas infinitas funções de valoração.
-					<br>
-					Fórmulas se classificam em:
-
-					<dl>
-						<dt class="title">Válida</dt>
-						<dd> Se \(\forall \mathcal{V}, \mathcal{V}(A) = T\)</dd>
-
-						<dt class="title">Satisfazível</dt>
-						<dd> Se \(\exists \mathcal{V}, \mathcal{V}(A) = T\)</dd>
-
-						<dt class="title">Insatisfazível</dt>
-						<dd> Se \(\forall \mathcal{V}, \mathcal{V}(A) = F\)</dd>
-
-						<dt class="title">Falsificável</dt>
-						<dd> Se \(\exists \mathcal{V}, \mathcal{V}(A) = F\)</dd>
-					</dl>
-
-					Por fim, se, para uma dada função de valoração \(\mathcal{V}\), \(\mathcal{V}(A) = T\), 
-					\(A\) é dita "satisfeita" e \(\mathcal{V}\) "satisfaz" \(A\). Análogamente, se \(\mathcal{V}(A) = F\) \(A\) é dita
-					"insatisfeita" e \(\mathcal{V}\) "insatisfaz" ou "falsifica" \(A\).
-				</p>
+				<h3> Parte 2.2: Algumas Propriedades </h3>
+				<hr>
+				<button class="collapsible"> Mostrar Conteúdo </button>
+				<div class="content">
+					<p>
+						Finalmente, devo mencionar certas propriedades e equivalências lógicas notáveis que surgem a partir das 
+						definições dos conectivos acima. <br> Para representar que duas fórmulas \(A\) e \(B\) são equivalentes, usarei o
+						símbolo \(\equiv\), por exemplo \(A \equiv B\).
+						<br>
+						<br>
+						<ul class="no-bullets">
+							<li>
+								A conjunção e a disjunção são comutativas:
+								\[A \land B \equiv B \land A\]
+								<!-- \[(A \land B) \lor C \equiv B \land A\] -->
+								\[A \lor B \equiv B \lor A\]
+							</li>
+							<li>
+								A conjunção ou disjunção de uma fórmula com ela mesma equivale a ela mesma:
+								\[A \land A \equiv A \lor A \equiv A\]
+							</li>
+							<li>
+								A implicação de uma fórmula com ela mesma equivale a \(\top\):
+								\[A \to A \equiv \top\]
+							</li>
+							<li>
+								A conjunção de uma fórmula com a constante \(\top\) é igual a própria fórmula:
+								\[A \land \top \equiv A\]
+							</li>
+							<li>
+								A disjunção de uma fórmula com a constante \(\top\) é igual a \(\top\):
+								\[A \lor \top \equiv \top\]
+							</li>
+							<li>
+								A conjunção de uma fórmula com a constante \(\bot\) é igual a \(\bot\):
+								\[A \land \bot \equiv \bot\]
+							</li>
+							<li>
+								A disjunção de uma fórmula com a constante \(\bot\) é igual a própria fórmula:
+								\[A \lor \bot \equiv A\]
+							</li>
+							<li>
+								A conjunção de uma fórmula \(A\) com a sua negação \(\neg A\) é igual a \(\bot\):
+								\[A \land \neg A \equiv \bot\]
+							</li>
+							<li>
+								A disjunção de uma fórmula \(A\) com a sua negação \(\neg A\) é igual a \(\top\):
+								\[A \lor \neg A \equiv \top\]
+							</li>
+							<li>
+								A implicação de uma fórmula \(A\) com constante \(\bot\) equivale a \(\neg A\):
+								\[A \to \bot \equiv \neg A\]
+							</li>
+							<li>
+								Leis de De Morgan:
+								\[\neg(A \land B) \equiv (\neg A \lor \neg B)\]
+								\[\neg(A \lor B) \equiv (\neg A \land \neg B)\]
+							</li>
+							<li>
+								Equivalências da Implicação:
+								\[(A \to B) \equiv (\neg A \lor B)\]
+								\[(A \to B) \equiv \neg (A \land \neg B)\]
+							</li>
+						</ul>
+						Deixa-se como exercício ao leitor verificar essas equivalências, com base no que foi explicado acima.
+					</p>
+				</div>
 			</article>
 		</section>
 
@@ -459,7 +534,7 @@
 					\[ (\forall \mathcal{V}, \mathcal{V}(A) = T \Rightarrow \mathcal{V}(B) = T) \Leftrightarrow A \vDash B\]
 
 					Aqui, o símbolo \(\Rightarrow\) é um símbolo da meta linguagem que significa "Se X então Y", e o símbolo 
-					\(\Leftrightarrow\) é um símbolo da meta linguagem que significa "X se, e somente se Y".
+					\(\Leftrightarrow\) é um símbolo da meta linguagem que significa "X se, e somente se, Y".
 					<br>
 					Podemos generalizar mais a noção de consequência, onde, ao invés de termos <i>uma</i> fórmula \(A\), temos 
 					um <i>conjunto</i> de fórmulas \(\Gamma\). Temos então que \(B\) é consequência de \(\Gamma\) se, e somente se, 
@@ -470,6 +545,17 @@
 					Ou, simplesmente,
 
 					\[\Gamma \vDash B\]
+
+					Podemos fixar a valoração para uma, ou várias, fórmulas quando estamos falando de consequência semântica, 
+					nesse caso, consideramos que aquela fórmula <i>sempre</i> será valorada daquela forma, por exemplo:
+
+					\[A \vDash B, \text{ onde } \mathcal{V}(A) = T\]
+
+					Para a consequência ser válida, basta \(\forall \mathcal{V}, \mathcal{V}(B) = T\). Um exemplo mais concreto seria:
+
+					\[(p \land q) \vDash q, \text{ onde } \mathcal{V}(p) = T\]
+
+					Esta consequência é claramente válida.
 				</p>
 			</article>
 
@@ -520,8 +606,8 @@
 		<footer>
 			<a name="Rodape1">[1]</a> Isso é uma nota de rodapé de teste <a class="simple" href="#Rodape1Up">^</a>
 			<br>
-			<a name="Rodape2">[2]</a> \(\bot\) e \(\top\) (lidos <i>bottom</i> e <i>top</i>) são as constantes 
-			lógicas de falsidade e verdade, respectivamente, isto é, são proposições cuja valoração é sempre falsa/verdadeira.
+			<a name="Rodape2">[2]</a> \(\bot\) e \(\top\) são lidos <i>bottom</i> e <i>top</i>, respectivamente, são 
+			proposições cuja valoração é sempre falsa/verdadeira.
 			<a class="simple" href="#Rodape2Up">^</a>
 			<br>
 			<a name="Rodape3">[3]</a> Um conceito que provavelmente não irei aboradar aqui é o de modelos da lógica, modelos
@@ -531,7 +617,7 @@
 		</footer>
 	</body>
 	
-
+	<script src="../Scripts/script.js"></script>
 </html>
 
 <!-- <p >
