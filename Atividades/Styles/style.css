@@ -25,6 +25,10 @@ a.link{
     text-decoration: underline;
 }
 
+a.simple{
+    text-decoration: none;
+}
+
 #fancy{
     font-family: cursive; 
     font-size: larger;
