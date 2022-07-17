@@ -43,11 +43,11 @@ table.centered{
     margin-right: auto;
 }
 
-ul.no-bullets {
+ul.no-bullets{
     list-style-type: none;
 }
 
-.collapsible {
+.collapsible{
     background-color: rgb(20, 20, 20);
     cursor: pointer;
     width: 11%;
@@ -56,21 +56,33 @@ ul.no-bullets {
     outline: none;
 }
 
-.active, .collapsible:hover {
+.active, .collapsible:hover{
     background-color: rgb(85, 85, 85);
 }
 
-.collapsible:after {
+.collapsible:after{
     content: '\002B';
     float: right;
 }
 
-.active:after {
+.active:after{
     content: "\2212";
 }
 
-.content {
+.content{
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+.Newsletter{
+    background-color: rgb(20, 20, 20);
+    width: auto;
+    height: auto;
+    border: none;
+    text-align: left;
+    outline: white;
+    position:absolute;
+    top:5%;
+    right:3%;
 }
