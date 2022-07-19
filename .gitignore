@@ -1,0 +1,4 @@
+*.pdf
+*.xopp
+*.txt
+__pycache__/
