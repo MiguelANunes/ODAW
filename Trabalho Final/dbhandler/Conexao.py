@@ -7,9 +7,9 @@
 
 # https://www.mongodb.com/languages/python
 
+import pymongo, pymongo.errors, sys
 
-import psycopg2, sys, datetime
-import pymongo, pymongo.errors
+# TODO Tratar retornos dessas funções
 
 def init_connection():
     """
@@ -25,7 +25,8 @@ def init_connection():
         return False
 
     # isso me retorna a database "Aeroporto" na conexão
-    return client['Aeroporto']
+    # Não posso retornar a DB inteira, tenho que retornar apenas a conexão, chamo a DB um nível acima
+    return client#['Aeroporto']
 
 def close_conection(database:pymongo.MongoClient) -> bool:
     """
@@ -44,106 +45,96 @@ def close_conection(database:pymongo.MongoClient) -> bool:
 
     return True
 
-def find():
-    # TODO
-    pass
-
-def insert(conn, tablename:str, values:tuple):
+def find(aeroporto, nomeColecao:str, filter:dict) -> list:
     """
-    Função para inserir dados nas tabelas
-    Retorna quantos valores foram inseridos, se conseguiu inserir,
-    Se não, retorna None
+    Função que busca dados no DB
+    Recebe o nome da coleção e opcionalmente um dict de filtro
+    Retorna uma lista de todos os dados que foram encontrados
     """
+    colecao    = aeroporto[nomeColecao]
+    returnList = []
 
-    execString = f"insert into {tablename} values {values}"
+    if filter == {}:
+        for objeto in colecao.find():
+            returnList.append(objeto)
+    else:
+        for objeto in colecao.find(filter):
+            returnList.append(objeto)
 
-    results = execute_query(conn, execString, False)
-
-    return results
-
-def update(conn, tablename:str, fields:list, newvalues:list, wherecond:str):
+    return returnList
+    
+def insert(aeroporto, nomeColecao:str, dados:dict) -> tuple:
     """
-    Função para atualizar dados nas tabelas
-    Retorna quantos valores foram modificados, se conseguiu modificar,
-    Se não, retorna False
+    Função que insere dados no DB 
+    Recebe o nome da coleção onde serão inseridos os dados
+    Dados são passados para essa função em forma de dict
+    Retorna uma tupla contendo um booleano indicando sucesso/fracasso ao inserir e uma 
+        mensagem de resposta
     """
+    colecao  = aeroporto[nomeColecao]
 
-    # field e newvalue são listas de, respectivamente, atributos e os valores novos p/ esses atributos
-
-    wherecond = 'where ' + wherecond
-
-    if len(fields) != len(newvalues):
-        print("Erro no update, qtd de campos e novos valores é diferente", file=sys.stderr)
-        return None
-
-    setstring = ""
-    try:
-        for field, value in zip(fields, newvalues):
-            setstring += f"set {field} = {value}"
-    except TypeError:
-        print("Erro ao fazer update", file=sys.stderr)
-        return None
-
-    execString = f"update {tablename} {setstring} {wherecond}"
-
-    results = execute_query(conn, execString, False)
-
-    return results
-
-def delete(conn, tablename:str, wherecond:str):
-    """
-    Função para deletar dados nas tabelas
-    Retorna True se conseguiu deletar, False se não
-    """
-
-    wherecond = 'where ' + wherecond
-    execString = f"delete from {tablename} {wherecond}"
-
-    results = execute_query(conn, execString, False)
-
-    return results
-
-def user_query_select(conn, query:str):
-    """
-    Função para executar um select do usuário
-    Retorna False se não conseguiu rodar, retorna o que a query retornou se conseguiu
-    """
-    results = execute_query(conn, query, True)
-    return results
-
-def user_query_other(conn, query:str):
-    """
-    Função para executar uma query qualquer do usuário que não é um select
-    Retorna False se não conseguiu rodar, retorna o que a query retornou se conseguiu
-    """
-    results = execute_query(conn, query, False)
-    return results
-
-def execute_query(conn, execString:str, returnsTable:bool):
-    """
-    Função para executar uma query 
-        Já que praticamente todas as funções acima lidam com a execução de uma 
-        query de praticamente a mesma forma, é mais conveniente colocar isso 
-        numa função separada
-    execString é a query a ser executada
-    returnsTable indica se essa query deveria retornar tabelas ou não, i.e.:
-        True:  Retorna tabelas     (usa o método fetchall())
-        False: Não retorna tabelas (usa o método rowcount())
-    """
+    if dados == {}:
+        return (False, "Nenhum dado fornecido!")
 
     try:
-        with conn.cursor() as mycursor:
-            mycursor.execute(execString)
-            conn.commit()
+        response = colecao.insert_many([dados])
+        status   = response.acknowledged
 
-            if returnsTable:
-                results = mycursor.fetchall() # retorna uma lista de tuplas
-            else:
-                results = mycursor.rowcount
+        if status:
+            message = f"Sucesso, {len(response.inserted_ids)} dados inseridos"
+        else:
+            message = "Erro ao inserir"
 
-    except psycopg2.ProgrammingError as E: # Erro gerado caso a query de erro
-        print(E)
-        print("Erro ao executar a query",execString, file=sys.stderr)
-        return None
+    except pymongo.errors as E:
+        message = str(E)
+        status = False
 
-    return results
+    return (status, message)
+
+def update(aeroporto, nomeColecao:str, filter:dict, pattern:dict) -> tuple:
+    """
+    Função que atualiza dados no DB com base num filtro
+    Recebe um filtro e as modificações que devem ser feitas
+    Retorna uma tupla contendo um int que indica quantos valores foram alterados
+        e uma mensagem de resposta
+    """
+    colecao  = aeroporto[nomeColecao]
+
+    try:
+        response = colecao.update_many(filter, pattern)
+        total    = response.modified_count
+
+        if total == 0:
+            message = "Nenhuma entrada foi modificada"
+        else:
+            message = f"{total} entradas foram modificadas"
+
+    except pymongo.errors as E:
+        message = str(E)
+        total   = -1
+
+    return (total, message)
+
+def delete(aeroporto, nomeColecao:str, filter:dict) -> tuple:
+    """
+    Função que deleta dados no DB com base num filtro
+    Recebe um filtro que indica quais dados devem ser deletados
+    Retorna uma tupla contendo um int que indica quantos valores foram deletados
+        e uma mensagem de resposta
+    """
+    colecao  = aeroporto[nomeColecao]
+
+    try:
+        response = colecao.delete_many(filter)
+        total    = response.deleted_count
+
+        if total == 0:
+            message = "Nenhuma entrada foi deletada"
+        else:
+            message = f"{total} entradas foram deletadas"
+
+    except pymongo.errors as E:
+        message = str(E)
+        total   = -1
+
+    return (total, message)
