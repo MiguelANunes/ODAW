@@ -1,0 +1,28 @@
+create database exercicio8;
+use exercicio8;
+
+create table tabela1(reg1 int primary key, reg2 int, reg3 char(3));
+create table tabela2(reg1 int primary key, reg2 char(10), reg3 char(5));
+create table tabela3(reg1 int primary key auto_increment, reg2 int);
+
+insert into tabela1 values(0,0,'Yes');
+insert into tabela1 values(1,0,'Yes');
+insert into tabela1 values(2,0,'No');
+insert into tabela1 values(3,1,'No');
+insert into tabela1 values(4,10,'Yes');
+
+select * from tabela1;
+select * from tabela1 where reg3 = 'Yes';
+
+update tabela1 set reg2 = 1 where reg3 = 'Yes';
+
+insert into tabela2 values(0,'Miguel','ACT');
+insert into tabela2 values(1,'Miguel','IAR');
+insert into tabela2 values(2,'Miguel','BAN');
+insert into tabela2 values(3,'Miguel','IC');
+
+delete from tabela2 where lenght(reg3) > 1;
+
+drop table tabela3;
+
+drop database exercicio8;
