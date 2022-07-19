@@ -1,22 +1,29 @@
 from django.shortcuts import render
-import django.http
-from utils import get_db_handle
-import pymongo
+from django.template import loader
 from django.conf import settings
+from django.http import HttpResponse
+
+from utils import get_db_handle
+
 
 # Create your views here.
 
 def index(request):
-    db, client = get_db_handle()
+    client, aeroporto = get_db_handle()
 
-    avioes_collection = db['avioes']
+    avioes_collection = aeroporto['avioes']
     avioes = avioes_collection.find()
 
-    ret = {}
+    ret = []
 
     for aviao in avioes:
-        ret.append(aviao)
+        ret.append(f"coda:{aviao['coda']}; codm:{aviao['codm']}; pontuacao{aviao['pontuacao']}<br>")
     
-    return django.http.HttpResponse(ret)
+    return HttpResponse(ret)
 
 
+def detail(request, num):
+    return HttpResponse(f"Isso é um teste {num}")
+
+def login(request):
+    return render(request, 'mainApp/login.html')

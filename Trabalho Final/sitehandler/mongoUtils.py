@@ -2,10 +2,14 @@
 import pymongo
 import os
 import dotenv
+import dbconnection
 
 # get_database function
 
-def get_database():
+def get_database() -> tuple:
+    """
+    Inicializa a DB e retorna o objeto de conexão com o DB e a coleção do aeroporto 
+    """
     # Source enviroment variables
     dotenv.load_dotenv()
 
@@ -15,11 +19,10 @@ def get_database():
     db_cluster = os.getenv('MONGODB_CLUSTER')
 
     # Set the connection URL and set mongo client
-    conn_url = "mongodb+srv://"+db_user+":"+db_passwd+"@"+db_cluster+".kmhfvzx.mongodb.net/?retryWrites=true&w=majority"
-    client = pymongo.MongoClient(conn_url)
-
-    # Retrieve database "Aeroporto" from the client
-    return client['Aeroporto']
+    client = dbconnection.init_connection("mongodb+srv://"+db_user+":"+db_passwd+"@"+db_cluster+".kmhfvzx.mongodb.net/?retryWrites=true&w=majority")
+    aeroporto = client['Aeroporto']
+    
+    return (client, aeroporto)
 
 # Connect to the database using the get_database() function
 db = get_database()

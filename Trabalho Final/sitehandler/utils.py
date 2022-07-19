@@ -1,8 +1,13 @@
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from os import getenv
+import dbconnection
 
 def get_db_handle():
+    """
+    Inicializa a DB e retorna o objeto de conexão com o DB e a coleção do aeroporto 
+    """
+
     # Source enviroment variables
     load_dotenv()
 
@@ -11,10 +16,12 @@ def get_db_handle():
     db_passwd = getenv('MONGODB_PASSWD')
     db_cluster = getenv('MONGODB_CLUSTER')
 
-    # Set the connection URL and set mongo client
-    conn_url = "mongodb+srv://"+db_user+":"+db_passwd+"@"+db_cluster+".kmhfvzx.mongodb.net/?retryWrites=true&w=majority"
-    client = MongoClient(conn_url)
+    client = dbconnection.init_connection("mongodb+srv://"+db_user+":"+db_passwd+"@"+db_cluster+".kmhfvzx.mongodb.net/?retryWrites=true&w=majority")
+    aeroporto = client['Aeroporto']
+    
+    return (client, aeroporto)
 
-    db_handle = client['Aeroporto']
-
-    return db_handle, client
+def close_db_handle(client):
+    
+    if not dbconnection.close_conection(client):
+        exit()
