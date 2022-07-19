@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset = "UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+        <title> Tarefa 5 de ODAW - Teste News Letter </title>
+        <link rel="STYLESHEET" href="../Styles/style.css" type="text/css">
+        <link rel="icon" type="image/x-icon" href="../Imagens/favicon.ico">
+    </head>
+
+    <body>
+
+        <h2 style="text-align: center;">News Letter</h2>
+
+        <!-- <form style="text-align: center;" onsubmit="return validate()">
+            <label for="mail">Insira seu e-mail</label><br>
+            <input type="text" id="mail" name="mail"><br><br>
+            <label for="cpf">Insira seu cpf</label><br>
+            <input type="text" id="cpf" name="cpf"><br><br>
+            <label for="idade">Insira sua idade</label><br>
+            <input type="number" id="idade" name="idade"><br><br>
+            <input type="submit" value="Enviar">
+        </form> -->
+
+        <div style="text-align:center;">
+
+            <p>Insira seu e-mail</p>
+            <input type="text" id="email" placeholder="exemplo@exemplo.com">
+            <button onclick="checa_mail()">Validar</button>
+            <p id="resultado_mail"></p>
+    
+            <br>
+    
+            <p>Insira seu CPF (Apenas Números)</p>
+            <input type="text" id="cpf" placeholder="123456678900">
+            <button onclick="checa_cpf()">Validar</button>
+            <p id="resultado_cpf"></p>
+    
+            <br>
+    
+            <p>Insira sua Idade</p>
+            <input type="text" id="idade">
+            <button onclick="checa_idade()">Validar</button>
+            <p id="resultado_idade"></p>
+
+        </div>
+
+        <button class="Newsletter" onclick="location.href='main.html'">Voltar</button>
+
+    </body>
+
+    <script src="../Scripts/script.js"></script>
+
+</html>
