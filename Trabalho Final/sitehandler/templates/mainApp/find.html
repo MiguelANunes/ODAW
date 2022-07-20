@@ -2,10 +2,12 @@
 <html lang="en">
 
     <head>
+        {% load static %}
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" type="text/css" href="css/table.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a81368914c.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,7 +48,7 @@
 
                 <div id="filtro-titulo">
                     <h3>
-                        <a href="filtragem.html">Filtrar</a>
+                        <a href="'mainApp/find.html">Filtrar</a>
                     </h3>
                 </div>
             </div>
@@ -80,11 +82,11 @@
 
 
 
-            <div class="tag"><b>Nomes:</b> Daniella, Miguel</div>
-            <div class="sair"><a href="login.html">Sair</a></div>
+            <div class="tag"><b>Nomes:</b> João, Miguel</div>
+            <div class="sair"><a href="../mainApp/login.html">Sair</a></div>
         </div>
 
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     </body>
 
 </html>

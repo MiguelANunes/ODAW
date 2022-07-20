@@ -2,9 +2,10 @@
 <html>
 
     <head>
+        {% load static %}
+
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a81368914c.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,19 +15,19 @@
     <body>
         <div class="container-style">
             <div class="img">
-                <img src="img/viao.svg">
+                <img src="{% static 'img/viao.svg' %}">
             </div>
             <div class="login-content">
                 <form action="tabelas/aviao.html">
-                    <img src="img/avatar.svg">
-                    <h2 class="title">LOGIN</h2>
+                    <img src="{% static 'img/login.svg' %}">
+                    
+                    <h2 class="title">Cadastro</h2>
                     <div class="input-div one">
                         <div class="i">
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="div">
-                            <h5>Usuário</h5>
-                            <input type="text" class="input">
+                            <input type="text" class="input" placeholder="Usuário">
                         </div>
                     </div>
                     <div class="input-div pass">
@@ -34,22 +35,24 @@
                             <i class="fas fa-lock"></i>
                         </div>
                         <div class="div">
-                            <h5>Senha</h5>
-                            <input type="password" class="input">
+                            <input type="password" class="input" placeholder="Senha">
                         </div>
                     </div>
-
-                    <button class="btn" onclick="window.location.href='tabelas/aviao.html'">
-                        Login
-                    </button>
-
-                    </a>
-                    <a id="cadastro" href="cadastro.html">Não possui cadastro?</a>
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="div">
+                            <input type="password" class="input" placeholder="Repita a Senha">
+                        </div>
+                    </div>
+                    <button class="btn" id="botao">Login</button>
+                    <a id="cadastro" href="login.html">Já possui cadastro?</a>
                 </form>
             </div>
-            <div class="tag"><b>Nomes:</b> Daniella, Miguel</div>
+            <div class="tag"><b>Nomes:</b> João, Miguel</div>
         </div>
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     </body>
 
 </html>

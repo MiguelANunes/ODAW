@@ -51,6 +51,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'aeroporto.urls'
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "templates/mainApp/static",
+    f'{BASE_DIR}/templates/mainApp/static/css/',
+    f'{BASE_DIR}/templates/mainApp/static/img/',
+    f'{BASE_DIR}/templates/mainApp/static/js/',
+]
 
 TEMPLATES = [
     {
