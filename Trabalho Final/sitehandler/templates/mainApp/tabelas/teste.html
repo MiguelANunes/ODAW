@@ -2,10 +2,12 @@
 <html lang="en">
 
     <head>
+        {% load static %}
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" type="text/css" href="../css/table.css">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a81368914c.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,22 +26,22 @@
                 <div id="lista">
                     <ul>
                         <li>
-                            <a href="aviao.html">Aviões</a>
+                            <a href="{% url 'mainApp:aviao' %}">Aviões</a>
                         </li>
                         <li>
-                            <a href="modelo.html">Modelos</a>
+                            <a href="{% url 'mainApp:modelo' %}">Modelos</a>
+                        </li>
+                        {% comment %} <li>
+                            <a href="{% url 'mainApp:teste' %}">Testes</a>
+                        </li> {% endcomment %}
+                        <li>
+                            <a href="{% url 'mainApp:sindicato' %}">Sindicatos</a>
                         </li>
                         <li>
-                            <a href="teste.html">Testes</a>
+                            <a href="{% url 'mainApp:controlador' %}">Controladores</a>
                         </li>
                         <li>
-                            <a href="sindicato.html">Sindicatos</a>
-                        </li>
-                        <li>
-                            <a href="controlador.html">Controladores</a>
-                        </li>
-                        <li>
-                            <a href="tecnico.html">Técnicos</a>
+                            <a href="{% url 'mainApp:tecnico' %}">Técnicos</a>
                         </li>
                     </ul>
                 </div>
@@ -47,7 +49,7 @@
 
                 <div id="filtro-titulo">
                     <h3>
-                        <a href="../filtragem.html">Filtrar</a>
+                        <a href="{% url 'mainApp:find' %}">Filtrar</a>
                     </h3>
                 </div>
             </div>
@@ -57,14 +59,23 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="col">Index</th>
-                                <th class="col">CODT</th>
-                                <th class="col">CODM</th>
+                                <th class="col">id</th>
+                                <th class="col">Código Teste</th>
+                                <th class="col">Código Avião</th>
                                 <th class="col">Data</th>
-                                <th class="col">Hora</th>
-                                <th class="col">Pontuação</th>
-                                <th class="col">Ações</th>
+                                <th class="col">Duração</th>
+                                <th class="col">Pontuação Máxima</th>
                             </tr>
+                            {% for id,teste in testes.items %}
+                                <tr>
+                                    <td> {{id}}                 </td>
+                                    <td> {{teste.codt}}         </td>
+                                    <td> {{teste.coda}}         </td>
+                                    <td> {{teste.data}}         </td>
+                                    <td> {{teste.duracao}}      </td>
+                                    <td> {{teste.pontuacaoMax}} </td>
+                                </tr>
+                            {% endfor %}
                         </thead>
                         <tbody>
                         </tbody>
@@ -78,14 +89,10 @@
                 </div>
             </div>
 
-
-
-            <div class="tag"><b>Nomes:</b> Daniella, Miguel</div>
-            <div class="sair"><a href="../login.html">Sair</a></div>
+            <div class="sair"><a href="{% url 'mainApp:login' %}">Sair</a></div>
         </div>
 
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/tabelas/*"></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     </body>
 
 </html>

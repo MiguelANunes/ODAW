@@ -26,30 +26,30 @@
                 <div id="lista">
                     <ul>
                         <li>
-                            <a href="tabelas/aviao.html">Aviões</a>
+                            <a href="{% url 'mainApp:aviao' %}">Aviões</a>
                         </li>
                         <li>
-                            <a href="tabelas/modelo.html">Modelos</a>
+                            <a href="{% url 'mainApp:modelo' %}">Modelos</a>
                         </li>
                         <li>
-                            <a href="tabelas/teste.html">Testes</a>
+                            <a href="{% url 'mainApp:teste' %}">Testes</a>
                         </li>
                         <li>
-                            <a href="tabelas/sindicato.html">Sindicatos</a>
+                            <a href="{% url 'mainApp:sindicato' %}">Sindicatos</a>
                         </li>
                         <li>
-                            <a href="tabelas/controlador.html">Controladores</a>
+                            <a href="{% url 'mainApp:controlador' %}">Controladores</a>
                         </li>
                         <li>
-                            <a href="tabelas/tecnico.html">Técnicos</a>
+                            <a href="{% url 'mainApp:tecnico' %}">Técnicos</a>
                         </li>
                     </ul>
                 </div>
 
                 <div id="filtro-titulo">
-                    <h3>
-                        <a href="'mainApp/find.html">Filtrar</a>
-                    </h3>
+                    {% comment %} <h3>
+                        <a href="{% url 'mainApp:find' %}">Filtrar</a>
+                    </h3> {% endcomment %}
                 </div>
             </div>
 
@@ -81,9 +81,7 @@
             </div>
 
 
-
-            <div class="tag"><b>Nomes:</b> João, Miguel</div>
-            <div class="sair"><a href="../mainApp/login.html">Sair</a></div>
+            <div class="sair"><a href="{% url 'mainApp:login' %}">Sair</a></div>
         </div>
 
         <script type="text/javascript" src="{% static 'js/main.js' %}"></script>

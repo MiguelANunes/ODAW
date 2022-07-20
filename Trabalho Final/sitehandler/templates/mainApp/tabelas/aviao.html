@@ -25,30 +25,30 @@
 
                 <div id="lista">
                     <ul>
+                        {% comment %} <li>
+                            <a href="{% url 'mainApp:aviao' %}">Aviões</a>
+                        </li> {% endcomment %}
                         <li>
-                            <a href="aviao.html">Aviões</a>
+                            <a href="{% url 'mainApp:modelo' %}">Modelos</a>
                         </li>
                         <li>
-                            <a href="modelo.html">Modelos</a>
+                            <a href="{% url 'mainApp:teste' %}">Testes</a>
                         </li>
                         <li>
-                            <a href="teste.html">Testes</a>
+                            <a href="{% url 'mainApp:sindicato' %}">Sindicatos</a>
                         </li>
                         <li>
-                            <a href="sindicato.html">Sindicatos</a>
+                            <a href="{% url 'mainApp:controlador' %}">Controladores</a>
                         </li>
                         <li>
-                            <a href="controlador.html">Controladores</a>
-                        </li>
-                        <li>
-                            <a href="tecnico.html">Técnicos</a>
+                            <a href="{% url 'mainApp:tecnico' %}">Técnicos</a>
                         </li>
                     </ul>
                 </div>
 
                 <div id="filtro-titulo">
                     <h3>
-                        <a href="../filtragem.html">Filtrar</a>
+                        <a href="{% url 'mainApp:find' %}">Filtrar</a>
                     </h3>
                 </div>
             </div>
@@ -63,12 +63,12 @@
                                 <th class="col">Código Mecânico</th>
                                 <th class="col">Pontuação</th>
                             </tr>
-                            {% for x,a in avioes.items %}
+                            {% for id,aviao in avioes.items %}
                                 <tr>
-                                    <td> {{x}}       </td>
-                                    <td> {{a.coda}}      </td>
-                                    <td> {{a.codm}}      </td>
-                                    <td> {{a.pontuacao}} </td>
+                                    <td> {{id}}              </td>
+                                    <td> {{aviao.coda}}      </td>
+                                    <td> {{aviao.codm}}      </td>
+                                    <td> {{aviao.pontuacao}} </td>
                                 </tr>
                             {% endfor %}
                         </thead>
@@ -88,7 +88,6 @@
         </div>
 
         <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-        {% comment %} <script type="text/javascript" src="js/tabelas/*"></script> {% endcomment %}
     </body>
 
 </html>
