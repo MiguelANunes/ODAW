@@ -18,7 +18,7 @@
                 <img src="{% static 'img/viao.svg' %}">
             </div>
             <div class="login-content">
-                <form action="tabelas/aviao.html">
+                <form action="{% url 'mainApp:aviao' %}">
                     <img src="{% static 'img/login.svg' %}">
                     
                     <h2 class="title">Cadastro</h2>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <button class="btn" id="botao">Login</button>
-                    <a id="cadastro" href="login.html">Já possui cadastro?</a>
+                    <a id="cadastro" href="{% url 'mainApp:login' %}">Já possui cadastro?</a>
                 </form>
             </div>
             <div class="tag"><b>Nomes:</b> João, Miguel</div>

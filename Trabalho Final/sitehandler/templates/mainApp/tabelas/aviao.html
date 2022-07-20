@@ -2,10 +2,12 @@
 <html lang="en">
 
     <head>
+        {% load static %}
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" type="text/css" href="../css/table.css">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a81368914c.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,11 +58,19 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="col">Index</th>
-                                <th class="col">CODA</th>
-                                <th class="col">CODM</th>
-                                <th class="col">Ações</th>
+                                <th class="col">id</th>
+                                <th class="col">Código Avião</th>
+                                <th class="col">Código Mecânico</th>
+                                <th class="col">Pontuação</th>
                             </tr>
+                            {% for x,a in avioes.items %}
+                                <tr>
+                                    <td> {{x}}       </td>
+                                    <td> {{a.coda}}      </td>
+                                    <td> {{a.codm}}      </td>
+                                    <td> {{a.pontuacao}} </td>
+                                </tr>
+                            {% endfor %}
                         </thead>
                         <tbody>
                         </tbody>
@@ -74,12 +84,11 @@
                 </div>
             </div>
 
-            <div class="tag"><b>Nomes:</b> Daniella, Miguel</div>
-            <div class="sair"><a href="../login.html">Sair</a></div>
+            <div class="sair"><a href="{% url 'mainApp:login' %}">Sair</a></div>
         </div>
 
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/tabelas/*"></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+        {% comment %} <script type="text/javascript" src="js/tabelas/*"></script> {% endcomment %}
     </body>
 
 </html>

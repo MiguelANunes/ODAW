@@ -26,14 +26,17 @@ def login(request):
     return render(request, 'mainApp/login.html')
 
 def find(request):
+    return render(request, 'mainApp/find.html')
+
+def cadastro(request):
+    return render(request, 'mainApp/cadastro.html', {'teste':"Olá, isso é um teste"})
+
+def aviao(request):
     client, aeroporto = get_db_handle()
     # avioes = aeroporto['avioes']
 
     avioes = dbconnection.find(aeroporto, 'avioes', {})
 
-    ret = {item['_id']:item for item in avioes}
+    ret = {'avioes': {item['_id']:item for item in avioes}}
 
-    return render(request, 'mainApp/find.html', ret)
-
-def cadastro(request):
-    return render(request, 'mainApp/cadastro.html', {'teste':"Olá, isso é um teste"})
+    return render(request, 'mainApp/tabelas/aviao.html',ret)
