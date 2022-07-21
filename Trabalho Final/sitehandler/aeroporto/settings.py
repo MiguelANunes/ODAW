@@ -11,7 +11,16 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+import dotenv
 from pathlib import Path
+
+# Source enviroment variables
+dotenv.load_dotenv()
+
+# Get enviroment variables
+db_user = os.getenv('MONGODB_USER')
+db_passwd = os.getenv('MONGODB_PASSWD')
+db_cluster = os.getenv('MONGODB_CLUSTER')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +41,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'mainApp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,14 +92,20 @@ WSGI_APPLICATION = 'aeroporto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-'''
+
+DB_NAME = "mongodb+srv://"+db_user+":"+db_passwd+"@"+db_cluster+".kmhfvzx.mongodb.net/?retryWrites=true&w=majority"
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'Aeroporto',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': DB_NAME
+        }
     }
 }
-'''
+
 
 
 # Password validation

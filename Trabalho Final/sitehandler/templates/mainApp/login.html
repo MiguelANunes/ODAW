@@ -19,7 +19,8 @@
                 <img src="{% static 'img/viao.svg' %}">
             </div>
             <div class="login-content">
-                <form action="{% url 'mainApp:aviao' %}">
+                <form action="{% url 'mainApp:aviao' %}" method="post">
+                    {% csrf_token %}
                     <img src="{% static 'img/avatar.svg' %}">
                     <h2 class="title">LOGIN</h2>
 
@@ -28,7 +29,7 @@
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="div">
-                            <input type="text" class="input" placeholder="Usuário">
+                            <input type="text" name="usuario" class="input" placeholder="Usuário">
                         </div>
                     </div>
 
@@ -37,7 +38,7 @@
                             <i class="fas fa-lock"></i>
                         </div>
                         <div class="div">
-                            <input type="password" class="input" placeholder="Senha">
+                            <input type="password" name="password" class="input" placeholder="Senha">
                         </div>
                     </div>
 

@@ -25,6 +25,8 @@ def aviao(request):
     _, aeroporto = get_db_handle()
     avioes = dbconnection.find(aeroporto, 'avioes', {})
 
+    print(request.POST.get("usuario"))
+
     ret = {'avioes': {item['_id']:item for item in avioes}}
 
     return render(request, 'mainApp/tabelas/aviao.html',ret)
