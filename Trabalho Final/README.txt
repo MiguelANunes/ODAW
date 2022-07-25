@@ -1,4 +1,4 @@
-Equipe: Miguel e Jo
+Equipe: Miguel e Joao
 
 Instruções de Compilação e Execução:
 	0: Devido ao fato de termos usado o cliente remoto do MongoDB para o trabalho, 
