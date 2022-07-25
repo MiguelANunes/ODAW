@@ -200,7 +200,7 @@ db.testes.insertMany(
       {
          codt: 6,
          coda: 9,
-         data: new Date(2014-03-01),
+         data: new Date(2014,03,01),
          duracao: 12,
          pontuacaoMax: 100
       }

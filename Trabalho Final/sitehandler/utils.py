@@ -25,3 +25,37 @@ def close_db_handle(client):
     
     if not dbconnection.close_conection(client):
         exit()
+
+def db_find(nomeColecao:str, filter:dict) -> list:
+    cliente, aeroporto = get_db_handle()
+    result = dbconnection.find(aeroporto, nomeColecao, filter)
+    close_db_handle(cliente)
+
+    return result
+
+def db_insert(nomeColecao:str, dados:dict) -> tuple:
+    cliente, aeroporto = get_db_handle()
+    
+    result = dbconnection.insert(aeroporto, nomeColecao, dados)
+
+    close_db_handle(cliente)
+
+    return result
+
+def db_update(nomeColecao:str, filter:dict, dados:dict) -> tuple:
+    cliente, aeroporto = get_db_handle()
+    
+    result = dbconnection.update(aeroporto, nomeColecao, filter, dados)
+
+    close_db_handle(cliente)
+
+    return result
+
+def db_delete(nomeColecao:str, filter:dict) -> tuple:
+    cliente, aeroporto = get_db_handle()
+    
+    result = dbconnection.delete(aeroporto, nomeColecao, filter)
+
+    close_db_handle(cliente)
+
+    return result

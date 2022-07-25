@@ -9,8 +9,6 @@
 
 import pymongo, pymongo.errors, sys
 
-# TODO Tratar retornos dessas funções
-
 def init_connection(connectionString:str):
     """
     Função que começa a conexão com o banco de dados
@@ -101,7 +99,7 @@ def update(aeroporto, nomeColecao:str, filter:dict, pattern:dict) -> tuple:
     colecao  = aeroporto[nomeColecao]
 
     try:
-        response = colecao.update_many(filter, pattern)
+        response = colecao.update_many(filter, {"$set": pattern}, True)
         total    = response.modified_count
 
         if total == 0:

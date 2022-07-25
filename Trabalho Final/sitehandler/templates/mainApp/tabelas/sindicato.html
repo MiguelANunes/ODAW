@@ -48,7 +48,7 @@
 
                 <div id="filtro-titulo">
                     <h3>
-                        <a href="{% url 'mainApp:find' %}">Filtrar</a>
+                        <a href="{% url 'mainApp:sindicato_find' %}">Filtrar</a>
                     </h3>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="col">Index</th>
+                                <th class="col">id</th>
                                 <th class="col">Código Sindicato</th>
                                 <th class="col">Nome</th>
                                 <th class="col">Controladores</th>
@@ -79,8 +79,11 @@
                     </table>
                 </div>
                 <div id="botao-embaixo">
-                    <button class="btn" onclick="window.location.href='adicionar-sindicato.html'">
-                        Adicionar
+                    <button class="btn" onclick="location.href='{% url 'mainApp:sindicato_add' %}'">
+                        Adicionar/Editar
+                    </button>
+                    <button class="btn" onclick="location.href='{% url 'mainApp:sindicato_delete' %}'">
+                        Deletar
                     </button>
                 </div>
             </div>

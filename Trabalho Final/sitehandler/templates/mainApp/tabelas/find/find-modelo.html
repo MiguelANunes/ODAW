@@ -55,33 +55,73 @@
 
             <div id="test">
                 <h2>Insira a string de busca:</h2>
-                <h3>&emsp; &emsp; Formato: atributo1: valor1, atributo2:valor2, ...</h3>
-                <h3>&emsp; &emsp; Operadores: atributo1 &CirclePlus; valor1, ..., onde &CirclePlus; pode ser <, >, <=, >= ou = </h3>
-                <h3>&emsp; &emsp; Encapsule strings com "", número decimais devem ser representados com . como separador</h3>
+                <h3>&emsp; &emsp; Formato: atributo1:valor1, atributo2:valor2, ...</h3>
+                <h3>&emsp; &emsp; Operadores: atributo1&CirclePlus;valor1, ..., onde &CirclePlus; pode ser <, >, <=, >= ou !=</h3>
+                <h3>&emsp; &emsp; Não insira espaços entre operandos e operadores nem entre vírgulas</h3>
+                <h3>&emsp; &emsp; Encapsule strings com "", número decimais devem ser representados com . como separador, datas são strings</h3>
+                <h3 style="color:red">Deixar isso bonito</h3>
+
                 <div id="filtro-flex">
-                    <div>
-                        <input type="text"></input>
-                    </div>
-                    <div>
+                    <form action="{% url 'mainApp:modelo_find' %}" method="post">
+                        {% csrf_token %}
+                    
+                        <div class="input-div one">
+                            <div class="i">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="div">
+                                <h5>String de Busca</h5>
+                                <input type="text" class="input" id="stringBusca" name="stringBusca">
+                            </div>
+                        </div>
+
+                        {% block message %}
+                            {% if message %}
+                                <p style="color:red">{{message}}</p>
+                            {% endif %}
+                        {% endblock message %}
+
                         <button class="btn" id="botao-filtro">
                             FILTRAR
                         </button>
-                    </div>
+                    </form>
                 </div>
 
                 <div id="table-flex">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="col">Index</th>
-                                <th class="col">Ações</th>
+                                <th class="col">id</th>
+                                <th class="col">Código Modelo</th>
+                                <th class="col">Nome</th>
+                                <th class="col">Capacidade</th>
+                                <th class="col">Peso</th>
+                                <th class="col">Limite</th>
+                                <th class="col">Aviões Associados</th>
                             </tr>
+                            {% for id,modelo in modelos.items %}
+                                <tr>
+                                    <td> {{id}}                </td>
+                                    <td> {{modelo.codm}}       </td>
+                                    <td> {{modelo.nome}}       </td>
+                                    <td> {{modelo.capacidade}} </td>
+                                    <td> {{modelo.peso}}       </td>
+                                    <td> {{modelo.limite}}     </td>
+                                    <td> {{modelo.avioes}}     </td>
+                                </tr>
+                            {% endfor %}
                         </thead>
-                        <tbody>
+                        <tbody id="tableBody">
                         </tbody>
                     </table>
                 </div>
             </div>
+            
+                <div id="botao-embaixo">
+                    <button class="btn" onclick="location.href='{% url 'mainApp:modelo' %}'">
+                        Voltar
+                    </button>
+                </div>
 
 
             <div class="sair"><a href="{% url 'mainApp:login' %}">Sair</a></div>
